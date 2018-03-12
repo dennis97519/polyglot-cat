@@ -1,0 +1,7 @@
+*.jar
+*.class
+/bin
+/dist
+/target
+/lib
+miglayout-src.zip
