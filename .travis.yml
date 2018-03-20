@@ -1,0 +1,17 @@
+language: java
+before_deploy:
+  #https://stackoverflow.com/questions/3545292/how-to-get-maven-project-version-to-the-bash-command-line
+  - export VER=$(mvn org.apache.maven.plugins:maven-help-plugin:2.1.1:evaluate -Dexpression=project.version|grep -Ev "(^\[|Download\w+:)")
+  - mvn package
+  - git config --local user.name "dennis97519"
+  - git config --local user.email "4066022+dennis97519@users.noreply.github.com"
+  - git tag "${VER}$(git log --format=%h -1)"
+deploy:
+  skip_cleanup: true
+  overwrite: true
+  provider: releases
+  api_key:
+    secure: YJ/AUMPliB2LhCThwEk7ihpfKSHsVwZpsmnV7PpVQ/KPjXvx2UB0EwcsAAg1yfIg4Uv7/L+8v83YoadRnb3HqE+r232JQAltPrafOT+vjKPWQU4oLQszwISvxBkJ2Rjz8++ccGbBYequPoXtmUX8QO9P7jPaKkfEXN/T3K+2IQmpwlUPzBPXx/nEw0qE8IhcGkWL/LfuH0kdzKv4SOAfvbcySpRgdje1g4UpTXlY75f5+phuunkrReLakQBBaaDyV7teUTsWXV3JGXTiN4eXZr2eQ4eZXjZAgfJ10aaXAonaBprNm3G4842FgMrwyXgK94uzJah9n+PnSx+7PezhmYprpmhCLH4tphKsCgnKI1pgg2ZXyGPlsIjxovI0l+EOSi3lR9HgeIbWIHgYtLxCl7NGbolC+KQ/EtlRZy/TD8X7VZQ8m743S7bKwy1pOmCYkYOLfcI1+MWQJvtWbbYf9NPh2vZYZE+cfyIVnFENsPOJgD2DUL5m1agUslJwQS01LMMYdP7TK/vIH2bLWRMIwY9TcQxaawY6p1ICDgYWgFNiGuxecn9whcZCPvEdxOyYC30AgXxAL7JmvBb2bK8cA8Ml/6XJ2W+e9elUvOsUh3m+9Rx1g/mh4BjFZSo2oegBmYKb9YWf0/q/xztAj4RacALtSsOkQEI4LuTnFwGRjlo=
+  file: "target/Polyglot-${VER}.jar"
+  on:
+    repo: dennis97519/polyglot-cat

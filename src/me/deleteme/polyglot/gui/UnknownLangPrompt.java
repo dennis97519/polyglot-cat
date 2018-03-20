@@ -2,8 +2,6 @@ package me.deleteme.polyglot.gui;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
-import java.awt.Dialog.ModalityType;
-
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -19,7 +17,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JComboBox;
 
-import com.google.common.base.Optional;
 import com.optimaize.langdetect.i18n.LdLocale;
 
 import java.awt.event.ActionListener;

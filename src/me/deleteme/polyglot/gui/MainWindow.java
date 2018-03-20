@@ -21,9 +21,7 @@ import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingWorker;
 import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
-
-import napkin.NapkinLookAndFeel;
+//import napkin.NapkinLookAndFeel;//for some IB requirement that prototype must look like prototype lel
 import java.awt.BorderLayout;
 import java.awt.event.KeyEvent;
 import java.awt.Component;
@@ -44,7 +42,6 @@ import java.awt.event.ActionEvent;
 import javax.swing.JSeparator;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
-import javax.swing.SwingUtilities;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.ListDataEvent;
 import javax.swing.event.ListDataListener;

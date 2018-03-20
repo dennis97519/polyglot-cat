@@ -1,16 +1,10 @@
 package me.deleteme.polyglot.gui;
 
-import java.awt.Color;
 import java.awt.Component;
 
 import javax.swing.DefaultListCellRenderer;
-import javax.swing.Icon;
 import javax.swing.JLabel;
 import javax.swing.JList;
-import javax.swing.ListCellRenderer;
-import javax.swing.border.Border;
-
-import sun.swing.DefaultLookup;
 
 public class SepPaneListRenderer extends DefaultListCellRenderer {
 

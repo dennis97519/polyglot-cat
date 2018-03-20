@@ -3,7 +3,6 @@
 	<name>Polyglot</name>
 	<comment></comment>
 	<projects>
-		<project>language-detector</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
