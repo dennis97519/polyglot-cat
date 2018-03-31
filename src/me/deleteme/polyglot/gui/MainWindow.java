@@ -275,10 +275,10 @@ public class MainWindow implements ActionListener,Serializable, ListSelectionLis
 		buttonPane = new JPanel();
 		formatPanel.add(buttonPane);
 		btnAdd = new JButton("+");
-		btnAdd.setPreferredSize(new Dimension(20,20));//so mac doesn't expand the button
+		btnAdd.setPreferredSize(new Dimension(40, 20));//so mac doesn't expand the button
 		btnAdd.addActionListener(this);
 		btnRmv = new JButton("-");
-		btnRmv.setPreferredSize(new Dimension(20,20));
+		btnRmv.setPreferredSize(new Dimension(40, 20));
 		btnRmv.setEnabled(false);
 		btnRmv.addActionListener(this);
 		btnEdit= new JButton("Edit...");
