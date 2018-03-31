@@ -275,8 +275,10 @@ public class MainWindow implements ActionListener,Serializable, ListSelectionLis
 		buttonPane = new JPanel();
 		formatPanel.add(buttonPane);
 		btnAdd = new JButton("+");
+		btnAdd.setPreferredSize(new Dimension(20,20));//so mac doesn't expand the button
 		btnAdd.addActionListener(this);
 		btnRmv = new JButton("-");
+		btnRmv.setPreferredSize(new Dimension(20,20));
 		btnRmv.setEnabled(false);
 		btnRmv.addActionListener(this);
 		btnEdit= new JButton("Edit...");
@@ -292,6 +294,7 @@ public class MainWindow implements ActionListener,Serializable, ListSelectionLis
 		btnAddEmptyLine.setAlignmentX(Component.CENTER_ALIGNMENT);
 		buttonPane.add(btnEdit);
 		
+		//looks like this is unused, may have planned for some additional format back then
 		paneFormatEdit = new JPanel();
 		formatPanel.add(paneFormatEdit);
 		paneFormatEdit.setLayout(new BoxLayout(paneFormatEdit, BoxLayout.Y_AXIS));
@@ -612,7 +615,9 @@ public class MainWindow implements ActionListener,Serializable, ListSelectionLis
 		lblStatus.setText(" ");
 	}
 	
-	
+	/**
+	 * overall action listener to jump to the appropriate function
+	 */
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == chckbxUnformattedText) {
 			do_chckbxUnformattedText_actionPerformed(e);
@@ -1048,22 +1053,23 @@ public class MainWindow implements ActionListener,Serializable, ListSelectionLis
 	 * @param arg0
 	 */
 	protected void do_chckbxUnformattedText_actionPerformed(ActionEvent e) {
-		syncFormatTextChkbx();
-	}
-
-	void syncFormatTextChkbx(){
 		boolean ufTStatus=chckbxUnformattedText.isSelected();
 		syncFormatTextStat(ufTStatus);
 	}
+	
+	/**
+	 * Syncs UI components after the checkbox for unformatted text is checked or unchecked
+	 * @param ufTStatus true - unformatted text mode
+	 */
 	void syncFormatTextStat(boolean ufTStatus){
 		
-		langNotDetOptPane.setVisible(ufTStatus);
-		paneFormatEdit.setVisible(!ufTStatus);
-		btnAddEmptyLine.setVisible(!ufTStatus);
-		btnComb.setEnabled(!ufTStatus);
+		langNotDetOptPane.setVisible(ufTStatus);//display the option for what to do when language not detected
+		paneFormatEdit.setVisible(!ufTStatus);//idk whats this
+		btnAddEmptyLine.setEnabled(!ufTStatus);//disable the button to add empty line (hiding it seems to screw up the + and - buttons on mac)
+		btnComb.setEnabled(!ufTStatus);//disable combine button as you can't combine without format
 		if(ufTStatus){
 			border.setTitle("Languages:");
-			plList.setCellRenderer(new SepPaneListRenderer());
+			plList.setCellRenderer(new SepPaneListRenderer());//probably to hide the empty line option
 		}
 		else{
 			border.setTitle("Format:");
